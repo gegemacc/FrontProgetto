@@ -1,0 +1,23 @@
+<h1>Registrazione</h1>
+<form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput ngModel name="userFirstName" id="userFirstName" placeholder="Inserisci il tuo nome">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Cognome</mat-label>
+        <input matInput ngModel name="userLastName" id="userLastName" placeholder="Inserisci il tuo cognome">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput ngModel name="userEmail" id="userEmail" placeholder="Inserisci la tua email">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput ngModel name="userPassword" id="userPassword" placeholder="Inserisci una password">
+      </mat-form-field>
+
+</form>
