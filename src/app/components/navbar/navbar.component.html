@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">TheShop</a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <ul class="navbar-nav mr-auto ml-auto">
@@ -12,13 +12,24 @@
           <div class="justify-content-md-center">
             <form class="d-flex" role="search">
               <input class="form-control col" type="search" placeholder="Ricerca prodotti" aria-label="Search" [(ngModel)]="searchQuery" name="searchInput">
-              <button class="btn btn-outline-success col-auto" type="submit" (click)="searchForQuery(searchQuery)">Search</button>
+              <button class="btn btn-outline-success col-auto" type="submit" (click)="searchForQuery(searchQuery)">
+                <fa-icon [icon]="searchIcon"></fa-icon>
+                Search</button>
             </form>
           </div>
         </li>
         </ul>
       </ul>
-        <a class="btn btn-success" href="/login" role="button">Accedi</a>
+
+        <button class="btn outline-light" [routerLink]="['/cart']">
+          <fa-icon [icon]="cartIcon"></fa-icon>
+          Carrello
+        </button>
+
+        <button class="btn btn-success" [routerLink]="['/login']">
+          <fa-icon [icon]="loginIcon"></fa-icon>
+          Accedi
+        </button>
     </div>
   </div>
 </nav>

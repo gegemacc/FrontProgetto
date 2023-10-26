@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import { faCartShopping, faMagnifyingGlass, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -9,6 +10,10 @@ import {Router} from "@angular/router";
 export class NavbarComponent implements OnInit {
 
   public searchQuery='';
+
+  loginIcon = faRightFromBracket;
+  searchIcon = faMagnifyingGlass;
+  cartIcon = faCartShopping;
 
   constructor(private route: Router) { }
 
@@ -21,7 +26,6 @@ export class NavbarComponent implements OnInit {
       },
       queryParamsHandling: 'merge'
     });
-  };
-
+  }
 
 }

@@ -14,6 +14,9 @@ import { LoginComponent } from './pages/login/login.component';
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SearchPageComponent } from './pages/search-page/search-page.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CartComponent } from './pages/cart/cart.component';
+
 
 
 @NgModule({
@@ -23,7 +26,8 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
     FooterComponent,
     SignupComponent,
     LoginComponent,
-    SearchPageComponent
+    SearchPageComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,8 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
