@@ -1,0 +1,24 @@
+<div class="main-content">
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <h3>Dettagli dell'ordine</h3>
+
+      <div *ngIf="order.details.length > 0">
+        <table class="table table-bordered">
+          <th width="20%">Nome prodotto</th>
+          <th width="20%"></th>
+          <th width="20%">Quantità</th>
+          <th width="20%">Subtotale</th>
+
+
+          <tr *ngFor="let detail of order.details">
+            <td>{{ detail.product.name | currency : "EUR" }}</td>
+            <td>{{ detail.quantity}}</td>
+        </table>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+

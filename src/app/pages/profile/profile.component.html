@@ -1,0 +1,55 @@
+<div class="main-content">
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <h3>I tuoi ordini</h3>
+
+      <div *ngIf="orders.length > 0">
+        <table class="table table-bordered">
+          <th width="20%">ID ordine</th>
+          <th width="20%">Totale</th>
+          <th width="20%">Indirizzo di spedizione</th>
+          <th width="20%">Numero di telefono</th>
+          <th width="20%">Data dell'ordine</th>
+
+          <tr *ngFor="let tempOrder of orders">
+            <td>{{ tempOrder.id }}
+            <button class = "btn-btn-sm btn-primary" style = "margin-left: auto" (click)="open(contentDetails, tempOrder)">Dettagli</button>
+            </td>
+            <td>{{ tempOrder.grandTotal | currency : "EUR" }}</td>
+            <td>{{ tempOrder.state+","+tempOrder.region+","+tempOrder.city+","+tempOrder.street }}</td>
+            <td>{{ tempOrder.phone }}</td>
+            <td>{{ tempOrder.orderDate | date : "medium" }}</td>
+          </tr>
+        </table>
+      </div>
+
+
+      <div *ngIf="orders.length==0" class="alert alert-warning col-md-12" role="alert">
+        Nessun ordine trovato.
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #contentDetails let-modal>
+  <div class="modal-body">
+    <button type="button" class="close" aria-label="Close" (click)="closeMod()">
+      <span aria-hidden="true">&times;</span>
+
+    </button>
+    <table class="table table-bordered">
+      <th width="20%">ID Prodotto</th>
+      <th width="20%">Nome prodotto</th>
+      <th width="20%">Quantità</th>
+
+      <tr *ngFor="let detail of tempDetails">
+        <td><a routerLink="/products/{{ detail.product.id }}">{{ detail.product.id}}</a></td>
+        <td>{{ detail.product.name}}</td>
+        <td>{{ detail.quantity}}</td>
+      </tr>
+    </table>
+  </div>
+</ng-template>
+
+
+<router-outlet></router-outlet>

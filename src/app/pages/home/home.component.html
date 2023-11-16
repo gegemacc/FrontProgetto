@@ -1,0 +1,79 @@
+<div class="main-content">
+  <div class="w-100">
+    <input #myInput class="au-input" type="text" placeholder="Ricerca prodotti..." (keyup.enter)="searchForQuery(myInput.value)">
+    <button class="btn btn-outline-dark" type="submit" (click)="searchForQuery(myInput.value)">
+      <fa-icon [icon]="searchIcon"></fa-icon>
+      Search</button>
+  </div>
+
+  <mat-form-field>
+    <mat-label>Categoria</mat-label>
+    <mat-select [(ngModel)]="selectedCategory" (ngModelChange)="onCategoryChange($event)" >
+      <mat-option *ngFor="let category of categories" [value]="category">
+        {{category.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <div class="row">
+
+        <div *ngFor="let product of products" class="col-md-3">
+          <div class="product-box">
+            <a routerLink="/products/{{ product.id }}">
+              <img [src]="product.image" style="width: 150px; height: 150px;" alt=""/>
+              <h1>{{ product.name }}</h1>
+              <div class="price">
+                {{ product.price | currency : "EUR" }}
+              </div>
+            </a>
+          </div>
+        </div>
+
+
+        <div
+          *ngIf="products?.length == 0"
+          class="alert alert-warning col-md-12"
+          role="alert"
+        >
+          Non sono presenti prodotti.
+        </div>
+      </div>
+
+
+      <div class="footer-pagination">
+        <div class="row">
+          <div class="col-md-6"></div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-9">
+                <ngb-pagination
+                  [(page)]="pageNumber"
+                  [pageSize]="pageSize"
+                  [collectionSize]="elementsNumber"
+                  [maxSize]="2"
+                  [boundaryLinks]="true"
+                  (pageChange)="listProducts()"
+                ></ngb-pagination>
+              </div>
+
+              <div class="col-md-3 mt-2" style="text-align: right">
+                <span class="mr-2" style="font-size: 13px"> Dimensioni pagina </span>
+                <select
+                  #myPageSelect
+                  (change)="updatePageSize(myPageSelect.value)"
+                >
+                  <option selected="selected">5</option>
+                  <option>10</option>
+                  <option>20</option>
+                  <option>50</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
