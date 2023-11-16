@@ -1,0 +1,35 @@
+<main class="mt-5 pt-4">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <img src='{{product.image}}' class="img-fluid" alt=""/>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="p-4">
+          <div class="mb-3">
+            <a href="">
+              <span class="badge bg-danger me-1">{{ category.name }}</span>
+            </a>
+          </div>
+
+          <p class="lead">
+            <span>{{ product.price | currency : "EUR" }}</span>
+          </p>
+
+          <strong><p style="font-size: 20px;">{{product.name}}</p></strong>
+
+          <form class="d-flex justify-content-left">
+            <button (click)="addToCart(product)" class="btn btn-primary btn-sm btn-product-bottom">Aggiungi al carrello</button>
+          </form>
+          <strong><p style="font-size: 20px;"></p></strong>
+          <strong><p style="font-size: 20px;">{{"Disponibili: "+ product.stock}}</p></strong>
+
+        </div>
+      </div>
+    </div>
+    <hr />
+    <a href="">
+      <span class="badge bg-primary me-1">{{product.description}}</span>
+    </a>
+  </div>
+</main>

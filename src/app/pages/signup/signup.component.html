@@ -1,23 +1,28 @@
-<h1>Registrazione</h1>
-<form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
-      <mat-form-field appearance="outline">
-        <mat-label>Nome</mat-label>
-        <input matInput ngModel name="userFirstName" id="userFirstName" placeholder="Inserisci il tuo nome">
-      </mat-form-field>
+<div class="container mt-5">
+    <div class="card" style="padding: 20px;">
+        <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Nome</mat-label>
+                <input type="string" matInput ngModel name="firstName" id="firstName">
+            </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Cognome</mat-label>
-        <input matInput ngModel name="userLastName" id="userLastName" placeholder="Inserisci il tuo cognome">
-      </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Cognome</mat-label>
+                <input type="string" matInput ngModel name="lastName" id="lastName">
+            </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
-        <input matInput ngModel name="userEmail" id="userEmail" placeholder="Inserisci la tua email">
-      </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput ngModel name="email" id="email">
+            </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Password</mat-label>
-        <input matInput ngModel name="userPassword" id="userPassword" placeholder="Inserisci una password">
-      </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput ngModel name="password" id="password">
+            </mat-form-field>
 
-</form>
+            <button class="w-100" type="submit" mat-raised-button color="primary">Iscriviti</button>
+
+        </form>
+    </div>
+</div>

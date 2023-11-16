@@ -1,1 +1,71 @@
-<p>cart works!</p>
+<div class="main-content">
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <div *ngIf="cart.quantity > 0">
+          <div *ngFor="let cartItem of cart.items">
+            <div class="card rounded-3 mb-4">
+              <div class="card-body p-4">
+                <div class="row d-flex justify-content-between align-items-center">
+                  <div class="col-md-2 col-lg-2 col-xl-2">
+                    <img
+                      ngSrc="{{ cartItem.product.image }}"
+                      class="img-fluid rounded-3" alt="" width="400" height="200">
+                  </div>
+                  <div class="col-md-3 col-lg-3 col-xl-3">
+                    <p class="lead fw-normal mb-2">{{ cartItem.product.name }}</p>
+                  </div>
+                  <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                    <button class="btn btn-primary btn-sm"
+                            *ngIf="cartItem.quantity > 1"
+                            (click)="editQuantity(cartItem.id, cartItem.quantity, cartItem.quantity-1)"
+                            >
+                      <fa-icon [icon]="minusIcon" size="2xl"></fa-icon>
+                    </button>
+
+                    <input id="form1" min="1" name="quantity" [value]="cartItem.quantity" type="number"
+                           class="form-control form-control-sm" readonly/>
+
+                    <button
+                      (click)="editQuantity(cartItem.id, cartItem.quantity, cartItem.quantity+1)"
+                            class="btn btn-primary btn-sm">
+                      <fa-icon [icon]="plusIcon" size="2xl"></fa-icon>
+                    </button>
+                    </div>
+                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                      <h5 class="mb-0">{{ cartItem.subTotal | currency : "€" }}</h5>
+                    </div>
+
+                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                      <button (click)="remove(cartItem)">
+                      <fa-icon [icon]="removeIcon" style="color: #ff0000;" size="2xl"></fa-icon>
+                      </button>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <tr>
+              <td colspan="2"></td>
+              <td style="font-weight: bold">
+                <p>Numero di articoli: {{ getQuantity() }}</p>
+                <p>Spedizione: GRATUITA</p>
+                <p>Totale: {{ getGrandTotal() | currency : "EUR" }}</p>
+                <div>
+                  <a routerLink="/checkout" class="btn btn-success">Checkout</a>
+                </div>
+              </td>
+            </tr>
+          </div>
+      </div>
+
+      <div
+        *ngIf="cart.quantity == 0"
+        class="alert alert-warning col-md-12"
+        role="alert"
+      >
+       Il tuo carrello è vuoto.
+      </div>
+    </div>
+  </div>
+</div>

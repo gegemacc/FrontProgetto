@@ -1,0 +1,64 @@
+<div class="container mt-5">
+  <div class="card p-2">
+    <div class="row">
+      <div class="col-6">
+        <form #productForm="ngForm" (ngSubmit)="submit(productForm)">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Nome del prodotto</mat-label>
+            <input matInput
+                   placeholder="Nome del prodotto"
+                   [(ngModel)]="product.name"
+                   name="name">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Categoria</mat-label>
+            <mat-select [(ngModel)]="product.category" name="category" (ngModelChange)="onCategoryChange($event)">
+              <mat-option *ngFor="let category of categories" [value]="category">
+                {{category.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Descrizione del prodotto</mat-label>
+            <input matInput placeholder="Descrizione del prodotto"
+                   [(ngModel)]="product.description"
+                   name="description">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Prezzo del prodotto</mat-label>
+            <input matInput placeholder="Prezzo del prodotto"
+                   [(ngModel)]="product.price"
+                   name="price">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Quantità</mat-label>
+            <input matInput placeholder="Quantità"
+                   [(ngModel)]="product.stock"
+                   name="stock">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>URL immagine</mat-label>
+            <input matInput placeholder="Immagine"
+                   [(ngModel)]="product.image"
+                   name="image">
+          </mat-form-field>
+
+
+          <div>
+            <button mat-stroked-button color="primary" style="margin-right: 3px;">Reset</button>
+            <button type="submit" mat-stroked-button color="primary" *ngIf="isNewProduct">Aggiungi</button>
+            <button type="submit" mat-stroked-button color="primary" *ngIf="!isNewProduct">Modifica</button>
+          </div>
+        </form>
+
+      </div>
+
+      <div class="col-6">
+        <img *ngIf="product.image" [src]="product.image" class="image-responsive" alt="" width="300px" height="300px"/>
+      </div>
+
+    </div>
+  </div>
+</div>

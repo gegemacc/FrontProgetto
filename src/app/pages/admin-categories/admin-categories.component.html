@@ -1,0 +1,32 @@
+<div class="content">
+
+  <button class="btn btn-primary btn-lg" style="float: right" (click)="openCategoryDialog()">
+    <fa-icon [icon]="addIcon"></fa-icon>
+  </button>
+
+<mat-card>
+  <mat-card-content>
+    <mat-table matSort [dataSource]="categories">
+
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>ID Categoria</mat-header-cell>
+        <mat-cell *matCellDef="let category"><div class="large-text">{{category.id}}</div> </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+        <mat-cell *matCellDef="let category"><div class="large-text">{{category.name}}</div></mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>Azioni</mat-header-cell>
+        <mat-cell *matCellDef="let row"><button mat-icon-button (click)="editCategory(row)"><mat-icon style="color: #6772E5">create</mat-icon></button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="[ 'id','name','actions']"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: ['id','name','actions']"></mat-row>
+    </mat-table>
+  </mat-card-content>
+</mat-card>
+</div>

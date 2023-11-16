@@ -1,0 +1,78 @@
+<div class="content">
+<h2>Lista dei prodotti</h2>
+
+<mat-form-field>
+  <mat-label>Categoria</mat-label>
+  <mat-select [(ngModel)]="selectedCategory" (ngModelChange)="onCategoryChange($event)" >
+    <mat-option *ngFor="let category of categories" [value]="category">
+      {{category.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+  <button class="btn btn-primary btn-lg" style="float: right" (click)="openProductDialog()">
+    <fa-icon [icon]="addIcon"></fa-icon>
+  </button>
+
+<mat-divider></mat-divider>
+
+
+
+<div *ngIf="selectedCategory.id == null">
+  <mat-card>
+    <mat-card-content>
+      <h1 style="text-align: center">Non sono presenti prodotti. Seleziona una categoria.</h1>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div *ngIf="selectedCategory.id != null">
+  <mat-card>
+    <mat-card-content>
+      <mat-table matSort [dataSource]="products">
+
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef>ID Prodotto</mat-header-cell>
+          <mat-cell *matCellDef="let product"><div class="large-text">{{product.id}}</div> </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+          <mat-cell *matCellDef="let product"><div class="large-text">{{product.name}}</div></mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+          <mat-header-cell *matHeaderCellDef>Prezzo</mat-header-cell>
+          <mat-cell *matCellDef="let product"> <div class="large-text">{{product.price | currency : 'EUR'}}</div></mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+          <mat-header-cell *matHeaderCellDef>Quantità disponibile</mat-header-cell>
+          <mat-cell *matCellDef="let product"> <div class="large-text">{{product.stock}}</div></mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="created">
+          <mat-header-cell *matHeaderCellDef>Data inserimento</mat-header-cell>
+          <mat-cell *matCellDef="let product"><div class="large-text">{{product.created | date : "medium" }}</div></mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="updated">
+          <mat-header-cell *matHeaderCellDef>Data ultima modifica</mat-header-cell>
+          <mat-cell *matCellDef="let product"> <div class="large-text">{{product.updated | date : "medium"}}</div></mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef>Azioni</mat-header-cell>
+          <mat-cell *matCellDef="let row"><button mat-icon-button (click)="editProduct(row)"><mat-icon style="color: #6772E5">create</mat-icon></button>
+            <button mat-icon-button (click)="deleteProductById(row.id)"><mat-icon style="color: red">delete</mat-icon></button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="[ 'id','name', 'price', 'quantity','created','updated','actions']"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: ['id','name', 'price', 'quantity','created','updated','actions']"></mat-row>
+      </mat-table>
+    </mat-card-content>
+  </mat-card>
+</div>
+</div>
+
+
