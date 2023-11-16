@@ -23,7 +23,6 @@ export class UserControllerService {
     });
   }
 
-
   public findAll() {
     return this.http.get<User[]>(this.BASE_URL + 'admin/users', {
       headers: this.requestHeaders,

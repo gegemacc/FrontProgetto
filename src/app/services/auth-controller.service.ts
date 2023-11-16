@@ -28,11 +28,8 @@ export class AuthControllerService {
     });
   }
 
-  public logout(): Observable<any> {
+  public logout(): void {
     this.clear();
-    return this.http.get(this.BASE_URL + 'logout', {
-      headers: this.requestHeaders,
-    });
   }
 
   public clear() {

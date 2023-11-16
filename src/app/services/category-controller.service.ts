@@ -22,13 +22,13 @@ export class CategoryControllerService {
   }
 
   public addCategory( categoryForm: NgForm) {
-    return this.http.post<Category>(this.BASE_URL + 'categories/new', categoryForm, {
+    return this.http.post<Category>(this.BASE_URL + 'admin/categories/new', categoryForm, {
       headers: this.requestHeaders,
     });
   }
 
   public editCategory(categoryId: number, categoryForm: NgForm) {
-    return this.http.put(this.BASE_URL + 'categories/'+categoryId+'/edit', categoryForm, {
+    return this.http.put(this.BASE_URL + 'admin/categories/'+categoryId+'/edit', categoryForm, {
       headers: this.requestHeaders,
     });
   }

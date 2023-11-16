@@ -41,19 +41,19 @@ export class ProductControllerService {
 
 
   public addProduct(productForm: NgForm) {
-    return this.http.post<Product>(this.BASE_URL + 'products/new', productForm, {
+    return this.http.post<Product>(this.BASE_URL + 'admin/products/new', productForm, {
       headers: this.requestHeaders,
     });
   }
 
   public editProduct(productId: number, productForm: NgForm) {
-    return this.http.put<Product>(this.BASE_URL + 'products/'+productId+'/edit', productForm, {
+    return this.http.put<Product>(this.BASE_URL + 'admin/products/'+productId+'/edit', productForm, {
       headers: this.requestHeaders,
     });
   }
 
   public deleteProduct(productId: number) {
-    return this.http.delete(this.BASE_URL + 'products/'+productId+'/delete', {
+    return this.http.delete(this.BASE_URL + 'admin/products/'+productId+'/delete', {
       headers: this.requestHeaders,
     });
   }
