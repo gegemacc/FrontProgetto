@@ -42,6 +42,7 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { OrderDetailsComponent } from './pages/order-details/order-details.component';
 import { AdminCategoriesComponent } from './pages/admin-categories/admin-categories.component';
 import { NewCategoryComponent } from './pages/new-category/new-category.component';
+import { ChiSiamoComponent } from './pages/chi-siamo/chi-siamo.component';
 
 
 
@@ -64,7 +65,8 @@ import { NewCategoryComponent } from './pages/new-category/new-category.componen
     NewProductComponent,
     OrderDetailsComponent,
     AdminCategoriesComponent,
-    NewCategoryComponent
+    NewCategoryComponent,
+    ChiSiamoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,23 @@
+.category-container {
+    display: flex;
+    flex-direction: column; /* Cambia la direzione del layout a colonna */
+    justify-content: center; /* Allineamento orizzontale al centro */
+    align-items: center; /* Allineamento verticale al centro */
+    max-width: 100%; /* Larghezza massima del contenitore */
+    margin: 0 auto; /* Centra il contenitore */
+    text-align: center; /* Centra il testo all'interno del contenitore */
+  }
+  
+  .category-container p {
+    max-width: 800px; /* Larghezza massima del testo */
+    margin: 20px auto; /* Spazio tra i paragrafi */
+    font-size: 20px; /* Dimensione del testo maggiore */
+    line-height: 1.6; /* Altezza della linea per migliorare la leggibilità */
+  }
+  
+  .category-container img {
+    max-width: 800px; /* Larghezza massima delle immagini ridotta a metà delle dimensioni originali (200px) */
+    height: auto; /* Altezza automatica per mantenere l'aspetto proporzionato */
+    margin: 20px 0; /* Spazio sopra e sotto le immagini */
+  }
+  

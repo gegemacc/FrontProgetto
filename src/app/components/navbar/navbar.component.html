@@ -1,41 +1,36 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+<nav class="navbar navbar-custom">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">TheShop</a>
+    <!-- Titolo -->
+    <a class="navbar-brand" href="#">Agritech</a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <ul class="navbar-nav mr-auto ml-auto">
-        </ul>
-      </ul>
-
-         <button class="btn btn-success me-1" *ngIf="isAdmin()" [routerLink]="['/admin']">
-           <fa-icon [icon]="loginIcon"></fa-icon>
-           ADMIN
-         </button>
-
-        <button class="btn btn-light me-1" [routerLink]="['/cart']">
-          <div class="total">
-            {{ cart.grandTotal | currency : "EUR" }}
-          </div>
-          <fa-icon [icon]="cartIcon"></fa-icon>
-        </button>
-
-        <button class="btn btn-success" *ngIf="!isLoggedIn()" [routerLink]="['/login']">
-          <fa-icon [icon]="loginIcon"></fa-icon>
-          Accedi
-        </button>
-
-      <button class="btn btn-light me-1" *ngIf="isLoggedIn()" [routerLink]="['/profile']">
-        <fa-icon [icon]="profileIcon"></fa-icon>
+    <!-- Barra di ricerca -->
+    <form class="d-flex w-100 me-auto navbar-center">
+      <input #myInput class="form-control me-2 search-bar" type="search" placeholder="Ricerca prodotti..." aria-label="Search" (keyup.enter)="searchForQuery(myInput.value)">
+      <button id="searchButton" class="btn btn-outline-dark" type="submit" (click)="searchForQuery(myInput.value)">
+        <fa-icon [icon]="searchIcon"></fa-icon>
       </button>
+    </form>
+    <!-- Fine della barra di ricerca -->
 
-        <button class="btn btn-danger" *ngIf="isLoggedIn()" (click)="logout()">
-          <fa-icon [icon]="logoutIcon"></fa-icon>
-          Esci
-        </button>
+    <!-- Menu a tendina -->
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fas fa-bars"></i></button>
+      <div class="dropdown-content">
+        <a routerLink="/chiSiamo">Chi Siamo</a>
+        <a routerLink="/home">Product</a>
+        <a routerLink="/admin" *ngIf="isAdmin()">Admin</a>
+        <a routerLink="/cart" class="btn">
+          <div class="total">{{ cart.grandTotal | currency : "EUR" }}</div>
+          Carrello
+        </a>
+        <a routerLink="/login" class="btn" *ngIf="!isLoggedIn()">Accedi</a>
+        <a routerLink="/profile" *ngIf="isLoggedIn()">Profilo</a>
+        <a (click)="logout()" *ngIf="isLoggedIn()">Esci</a>
+      </div>
     </div>
   </div>
 </nav>
+
+
+
+

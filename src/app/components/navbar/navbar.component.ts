@@ -12,6 +12,7 @@ import {NgForm} from "@angular/forms";
 import {CartControllerService} from "../../services/cart-controller.service";
 import {Cart} from "../../models/Cart";
 import {ProductControllerService} from "../../services/product-controller.service";
+import { Product } from 'src/app/models/Product';
 
 @Component({
   selector: 'app-navbar',
@@ -22,7 +23,11 @@ export class NavbarComponent implements OnInit {
 
   public searchQuery='';
   cart = {} as Cart;
-
+  pageNumber: number = 1;
+  pageSize: number = 12;
+  elementsNumber: number = 0;
+  products: Product[] = [];
+  searchIcon = faMagnifyingGlass;
   loginIcon = faRightToBracket;
   cartIcon = faCartShopping;
   profileIcon= faUserCircle;
@@ -53,5 +58,17 @@ export class NavbarComponent implements OnInit {
 
   isAdmin() {
     return this.authService.isAdmin();
+  }
+
+  searchForQuery(query: string) {
+    this.productService.getAllProducts(this.pageNumber - 1,this.pageSize,query).subscribe(this.processResult());
+  }
+  processResult() {
+    return (data: any) => {
+      this.products = data.content;
+      this.pageSize = data.size;
+      this.pageNumber = data.number + 1;
+      this.elementsNumber = data.totalElements;
+    }
   }
 }

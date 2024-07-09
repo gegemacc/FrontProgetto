@@ -15,6 +15,7 @@ import {adminGuard} from "./guard/admin.guard";
 import {AdminOrdersComponent} from "./pages/admin-orders/admin-orders.component";
 import {OrderDetailsComponent} from "./pages/order-details/order-details.component";
 import {AdminCategoriesComponent} from "./pages/admin-categories/admin-categories.component";
+import { ChiSiamoComponent } from './pages/chi-siamo/chi-siamo.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,14 @@ const routes: Routes = [
   },
   {
     path: '',
+    component: HomeComponent,
+  },
+  {
+    path: 'chiSiamo',
+    component: ChiSiamoComponent,
+  },
+  {
+    path: 'home',
     component: HomeComponent,
   },
   {

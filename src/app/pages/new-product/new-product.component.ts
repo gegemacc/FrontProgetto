@@ -10,6 +10,7 @@ import {ActivatedRoute} from "@angular/router";
 import {HttpErrorResponse} from "@angular/common/http";
 import {CategoryControllerService} from "../../services/category-controller.service";
 import {ProductCreate} from "../../models/ProductCreate";
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-new-product',
@@ -54,24 +55,20 @@ export class NewProductComponent implements OnInit {
   }
 
   submit(productForm: NgForm) {
+    const observer = {
+      next: (response: Product) => {
+        productForm.reset();
+      },
+      error: (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    };
+
     if(this.isNewProduct) {
-      this.productService.addProduct(productForm.value).subscribe(
-        (response: Product) => {
-          productForm.reset();
-        },
-        (error: HttpErrorResponse) => {
-          console.log(error)
-        }
-      );
+      this.productService.addProduct(productForm.value).subscribe(observer);
     } else {
-        this.productService.editProduct(this.productId, productForm.value).subscribe(
-        (response: Product) => {
-          productForm.reset();
-        },
-        (error: HttpErrorResponse) => {
-          console.log(error)
-        }
-      );
+      this.productService.editProduct(this.productId, productForm.value).subscribe(observer);
     }
   }
 }
+

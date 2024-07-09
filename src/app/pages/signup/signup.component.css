@@ -1,0 +1,82 @@
+/* Stili generali della pagina di signup */
+
+/* Stili per il container principale */
+.login-container {
+    background-color: white; /* Sfondo bianco */
+    width: 100%; /* Occupa tutta la larghezza della pagina */
+    height: 100vh; /* Occupa tutta l'altezza del viewport */
+    display: flex; /* Per centrare il contenuto verticalmente */
+    justify-content: center; /* Per centrare il contenuto orizzontalmente */
+    align-items: center; /* Per centrare il contenuto verticalmente */
+    flex-direction: column; /* Allinea gli elementi in colonna */
+  }
+  
+  /* Stili per il titolo */
+  .login-title {
+    color: #ffa500; /* Colore arancione */
+    font-size: 70px; /* Dimensione grande */
+    margin-bottom: 20px; /* Spazio sotto il titolo */
+  }
+  
+  /* Stili per il form di signup */
+  .login-form {
+    width: 400px; /* Larghezza fissa del form */
+    padding: 20px; /* Spaziatura interna */
+    background-color: #f8f9fa; /* Colore di sfondo grigio */
+    border-radius: 10px; /* Bordi arrotondati */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+  }
+  
+  /* Stili per i gruppi di input */
+  .form-group {
+    margin-bottom: 20px; /* Spazio tra i gruppi */
+  }
+  
+  /* Stili per le etichette */
+  label {
+    display: block; /* Visualizzazione a blocco */
+    margin-bottom: 5px; /* Spazio sotto l'etichetta */
+    color: orange; /* Colore arancione */
+    font-size: 20px; /* Dimensione del testo */
+  }
+  
+  /* Stili per gli input */
+  input {
+    width: 100%; /* Larghezza massima */
+    padding: 10px; /* Spaziatura interna */
+    border-radius: 5px; /* Bordi arrotondati */
+    border: 2px solid #ffa500; /* Bordo arancione */
+    font-size: 16px; /* Dimensione del testo */
+  }
+  
+  /* Stili per il pulsante di signup */
+  button {
+    width: 100%; /* Larghezza massima */
+    padding: 12px; /* Spaziatura interna */
+    background-color: #218838; /* Colore verde scuro */
+    color: orange; /* Colore arancione */
+    border: none; /* Nessun bordo */
+    border-radius: 5px; /* Bordi arrotondati */
+    cursor: pointer; /* Puntatore al passaggio */
+    font-size: 18px; /* Dimensione del testo */
+    margin-top: 20px; /* Spazio sopra il pulsante */
+  }
+  
+  /* Stili per il container del link di login */
+  .register-container {
+    width: 100%; /* Larghezza massima */
+    text-align: center; /* Allinea al centro */
+  }
+  
+  /* Stili per il link di login */
+  .register-link {
+    color: orange; /* Colore arancione */
+    text-decoration: none; /* Nessuna decorazione del testo */
+    font-size: 18px; /* Dimensione del testo */
+  }
+  
+  /* Stili per il link di login al passaggio */
+  .register-link:hover {
+    text-decoration: underline; /* Sottolineare al passaggio */
+  }
+  

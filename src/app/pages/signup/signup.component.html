@@ -1,28 +1,28 @@
-<div class="container mt-5">
-    <div class="card" style="padding: 20px;">
-        <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
-            <mat-form-field appearance="outline" class="w-100">
-                <mat-label>Nome</mat-label>
-                <input type="string" matInput ngModel name="firstName" id="firstName">
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="w-100">
-                <mat-label>Cognome</mat-label>
-                <input type="string" matInput ngModel name="lastName" id="lastName">
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="w-100">
-                <mat-label>Email</mat-label>
-                <input type="email" matInput ngModel name="email" id="email">
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="w-100">
-                <mat-label>Password</mat-label>
-                <input type="password" matInput ngModel name="password" id="password">
-            </mat-form-field>
-
-            <button class="w-100" type="submit" mat-raised-button color="primary">Iscriviti</button>
-
-        </form>
+<div class="login-container">
+    <h1 class="login-title">AGRITECH</h1>
+    <div class="card">
+      <form #registerForm="ngForm" (ngSubmit)="register(registerForm)" class="login-form">
+        <div class="form-group">
+          <label for="firstName">Nome</label>
+          <input type="text" matInput ngModel name="firstName" id="firstName" placeholder="Enter your first name">
+        </div>
+        <div class="form-group">
+          <label for="lastName">Cognome</label>
+          <input type="text" matInput ngModel name="lastName" id="lastName" placeholder="Enter your last name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" matInput ngModel name="email" id="email" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" matInput ngModel name="password" id="password" placeholder="Enter your password">
+        </div>
+        <button type="submit" class="btn">Iscriviti</button>
+      </form>
+      <div class="register-container">
+        <a class="register-link" routerLink="/login">Hai già un account? Accedi qui!</a>
+      </div>
     </div>
-</div>
+  </div>
+  
